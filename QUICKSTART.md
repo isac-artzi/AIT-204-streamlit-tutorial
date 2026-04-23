@@ -2,6 +2,10 @@
 
 Get started with Streamlit in 5 minutes!
 
+> **Where this fits:** this is **step 1** of the tutorial. After running your
+> first app here, head back to the main [README.md](README.md) for the
+> full walkthrough of concepts, widgets, layouts, caching, and state.
+
 ## 🚀 Installation
 
 ```bash
@@ -203,7 +207,9 @@ df = load_data()  # Fast after first load
 
 ## 🌐 Deploy to Cloud (Free!)
 
-### Quick Deploy to Streamlit Cloud
+Pick one of two paths depending on what you're building:
+
+### Path A — Streamlit-only app → Streamlit Community Cloud
 
 1. **Push code to GitHub**
    ```bash
@@ -214,15 +220,17 @@ df = load_data()  # Fast after first load
    git push -u origin main
    ```
 
-2. **Go to** [share.streamlit.io](https://share.streamlit.io)
+2. Go to [share.streamlit.io](https://share.streamlit.io), click **New app**,
+   select your repo, click **Deploy**.
 
-3. **Click "New app"**
+Full walkthrough: **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**.
 
-4. **Select your repository** and click "Deploy"
+### Path B — Streamlit + FastAPI backend → Render.com
 
-5. **Done!** Your app is now live on the internet!
+For apps with a separate Python backend (API, ML model server, DB). You'll
+deploy two services and wire them together with an environment variable.
 
-For detailed deployment instructions, see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+Full walkthrough: **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)**.
 
 ---
 
@@ -272,8 +280,9 @@ pip install package_name
 
 ## 🔗 Quick Links
 
-- **Tutorial**: [README.md](README.md)
-- **Deployment**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+- **Full tutorial**: [README.md](README.md)
+- **Deploy (Streamlit only)**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+- **Deploy (Streamlit + FastAPI on Render)**: [RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)
 - **Cheat Sheet**: [resources/cheatsheet.md](resources/cheatsheet.md)
 - **Best Practices**: [resources/best_practices.md](resources/best_practices.md)
 - **Official Docs**: [docs.streamlit.io](https://docs.streamlit.io)

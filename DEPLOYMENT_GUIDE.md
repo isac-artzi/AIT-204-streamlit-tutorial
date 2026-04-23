@@ -1,6 +1,11 @@
-# Streamlit Cloud Deployment Guide
+# Streamlit Community Cloud Deployment Guide
 
 A complete step-by-step guide to deploying your Streamlit app to the cloud **for free**!
+
+> **Where this fits:** this is **step 5a** of the tutorial — use it when your
+> app is a single Streamlit script with no separate backend. If your app has a
+> FastAPI (or other) backend service, use **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)** instead.
+> New here? Start at the [README](README.md).
 
 ## 🌐 What is Streamlit Cloud?
 
@@ -45,7 +50,7 @@ my-streamlit-app/
 List all Python packages your app needs:
 
 ```txt
-streamlit>=1.28.0
+streamlit>=1.40.0
 pandas>=2.0.0
 numpy>=1.24.0
 plotly>=5.14.0
@@ -401,13 +406,17 @@ st.dataframe(df.head(100))  # Instead of entire dataset
 
 ## 💰 Pricing & Limits
 
-### Free Tier (Streamlit Cloud Community)
+### Free Tier (Streamlit Community Cloud)
 
-- **Cost**: Free forever
-- **Public apps**: Unlimited
-- **Private apps**: 1 app
-- **Resources**: 1 GB RAM, shared CPU
-- **Requirements**: Repository must be public
+- **Cost**: Free
+- **Public apps**: Supported (repo must be public)
+- **Private apps**: Limited; see current terms on streamlit.io
+- **Resources**: ~1 GB RAM, shared CPU (subject to change — check docs)
+- **Sleep behavior**: Apps may go to sleep after inactivity and wake on next visit
+
+> Streamlit Community Cloud's exact limits change over time. Always check
+> [docs.streamlit.io/deploy/streamlit-community-cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud)
+> for the latest.
 
 ### Paid Tiers (Streamlit Cloud Teams/Enterprise)
 
@@ -495,12 +504,12 @@ st.set_page_config(
 
 ```txt
 # ✅ Good: Specific versions
-streamlit==1.28.0
-pandas==2.0.3
-numpy==1.24.3
+streamlit==1.40.0
+pandas==2.2.3
+numpy==2.1.3
 
 # ⚠️ Okay: Minimum versions
-streamlit>=1.28.0
+streamlit>=1.40.0
 pandas>=2.0.0
 
 # ❌ Bad: No versions (can break unexpectedly)
@@ -545,7 +554,7 @@ if st.button("Generate Data"):
 
 **File: `requirements.txt`**
 ```txt
-streamlit>=1.28.0
+streamlit>=1.40.0
 pandas>=2.0.0
 numpy>=1.24.0
 ```

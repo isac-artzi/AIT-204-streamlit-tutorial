@@ -2,6 +2,33 @@
 
 A comprehensive guide to building and deploying interactive web applications with Streamlit.
 
+---
+
+## 🗺 Start Here — Reading Order
+
+If you just cloned this repo, read the docs in this order. Skip ahead only if
+a step is obviously already familiar.
+
+| # | Doc | Goal | Time |
+|---|---|---|---|
+| 1 | **[QUICKSTART.md](QUICKSTART.md)** | Install Streamlit, run your first app, see it work. | ~10 min |
+| 2 | **This README** (below) | Learn the core concepts — widgets, data, layouts, caching, state. | 30–60 min |
+| 3 | `examples/` folder | Run the 5 example apps end-to-end; tweak them to build intuition. | 1–2 hrs |
+| 4 | **[`my_first_app/`](my_first_app/)** | Copy the template and make something of your own. | 1+ hrs |
+| 5a | **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** | Deploy a **Streamlit-only** app on Streamlit Community Cloud (free). | ~20 min |
+| 5b | **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)** | Deploy a **Streamlit + FastAPI backend** app on Render.com (free). No prior cloud experience assumed. | ~45 min |
+
+**Reference docs** you can dip into any time:
+
+- [`resources/cheatsheet.md`](resources/cheatsheet.md) — one-page syntax reference
+- [`resources/best_practices.md`](resources/best_practices.md) — tips for building production-quality apps
+
+Do **step 5a** if your app is a single Streamlit script. Do **step 5b** if
+your app has a separate backend (for an API, ML model server, database, or
+anything you want to call from multiple clients). You don't need to do both.
+
+---
+
 ## 📚 What is Streamlit?
 
 **Streamlit** is an open-source Python framework that makes it incredibly easy to create beautiful, interactive web applications for data science and machine learning projects. No HTML, CSS, or JavaScript required!
@@ -27,24 +54,30 @@ A comprehensive guide to building and deploying interactive web applications wit
 ```
 Streamlit-tutorial/
 │
-├── README.md                    # This file
-├── DEPLOYMENT_GUIDE.md          # Step-by-step deployment instructions
+├── README.md                     # This file
+├── QUICKSTART.md                 # 5-minute quick start
+├── DEPLOYMENT_GUIDE.md           # Streamlit Community Cloud deployment
+├── RENDER_DEPLOYMENT_GUIDE.md    # Streamlit + FastAPI on Render.com
 │
 ├── examples/
-│   ├── 01_hello_world.py       # Simplest possible app
-│   ├── 02_basic_widgets.py     # Common widgets demo
-│   ├── 03_data_visualization.py # Charts and graphs
-│   ├── 04_interactive_app.py   # Complete interactive example
-│   └── 05_advanced_features.py # Layouts, caching, state
+│   ├── 01_hello_world.py            # Simplest possible app
+│   ├── 02_basic_widgets.py          # Common widgets demo
+│   ├── 03_data_visualization.py     # Charts and graphs
+│   ├── 04_interactive_app.py        # Complete interactive example
+│   ├── 05_advanced_features.py      # Layouts, caching, state
+│   └── streamlit_fastapi_render/    # Full-stack example (frontend + backend)
+│       ├── backend/                 # FastAPI service
+│       ├── frontend/                # Streamlit service
+│       └── README.md                # How to run & deploy
 │
-├── my_first_app/               # Template for your first project
-│   ├── app.py                  # Main application
-│   ├── requirements.txt        # Dependencies
-│   └── README.md               # Project documentation
+├── my_first_app/                # Template for your first project
+│   ├── app.py                   # Main application
+│   ├── requirements.txt         # Dependencies
+│   └── README.md                # Project documentation
 │
 └── resources/
-    ├── cheatsheet.md           # Quick reference
-    └── best_practices.md       # Tips and tricks
+    ├── cheatsheet.md            # Quick reference
+    └── best_practices.md        # Tips and tricks
 ```
 
 ---
@@ -339,15 +372,26 @@ else:
 
 ---
 
-## 🌐 Deploying to Streamlit Cloud
+## 🌐 Deploying Your App
 
-See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** for detailed instructions on deploying your app to the cloud for free!
+You have two free deployment paths, depending on what you're building:
 
-**Quick Overview:**
-1. Push your code to GitHub
+### Option A — Streamlit Community Cloud (Streamlit-only apps)
+
+Best when your whole app is a single Streamlit script. Push to GitHub, click
+deploy. See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**.
+
+1. Push your code to GitHub (public repo)
 2. Sign up at [share.streamlit.io](https://share.streamlit.io)
 3. Connect your GitHub repository
 4. Deploy in one click!
+
+### Option B — Render.com (Streamlit + FastAPI backend)
+
+Best when your app has a **separate backend** (for an API, ML model server,
+database, etc.). You deploy the FastAPI backend and the Streamlit frontend as
+two web services. See **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)**
+for a from-scratch walkthrough (no cloud experience required).
 
 ---
 
@@ -483,10 +527,12 @@ Create an app that:
 
 ## 🎓 Next Steps
 
-1. **Explore Examples** - Run the example apps in the `examples/` folder
-2. **Build Your App** - Use the template in `my_first_app/`
-3. **Deploy** - Follow the deployment guide to put your app online
-4. **Share** - Show your app to the world!
+1. **Explore Examples** — run the apps in [`examples/`](examples/)
+2. **Build Your App** — copy and modify [`my_first_app/`](my_first_app/)
+3. **Deploy** — pick one path:
+   - Streamlit-only app → [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+   - Streamlit + FastAPI backend → [RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)
+4. **Share** — post the URL; iterate based on feedback.
 
 ---
 

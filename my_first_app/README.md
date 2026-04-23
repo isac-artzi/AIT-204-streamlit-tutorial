@@ -51,11 +51,16 @@ Check out the examples in the `../examples/` folder for inspiration!
 
 ## 🌐 Deploy to Cloud
 
-When you're ready to share your app with the world:
+When you're ready to share your app with the world, pick one:
 
-1. Follow the [DEPLOYMENT_GUIDE.md](../DEPLOYMENT_GUIDE.md)
-2. Push your code to GitHub
-3. Deploy on Streamlit Cloud (free!)
+- **Streamlit-only app** → [DEPLOYMENT_GUIDE.md](../DEPLOYMENT_GUIDE.md)
+  (Streamlit Community Cloud — one-click deploy, great for dashboards and
+  demos)
+- **Streamlit + separate backend (FastAPI, DB, etc.)** →
+  [RENDER_DEPLOYMENT_GUIDE.md](../RENDER_DEPLOYMENT_GUIDE.md) (Render.com —
+  two web services, from-scratch walkthrough)
+
+Both are free and assume no prior cloud experience.
 
 ## 📚 Learn More
 

@@ -277,10 +277,10 @@ df = pd.read_csv(uploaded_file)  # ❌ No validation, can crash
 **DO:**
 ```txt
 # requirements.txt
-streamlit==1.28.0
-pandas==2.0.3
-numpy==1.24.3
-plotly==5.14.1
+streamlit==1.40.0
+pandas==2.2.3
+numpy==2.1.3
+plotly==5.24.1
 ```
 
 **DON'T:**
@@ -455,7 +455,7 @@ age = st.number_input("Age", 0, 120)  # ❌ Not descriptive enough
 st.image(
     "chart.png",
     caption="Sales growth over time",
-    use_column_width=True
+    use_container_width=True
 )
 ```
 
