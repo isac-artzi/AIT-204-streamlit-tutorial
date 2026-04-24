@@ -429,6 +429,60 @@ st.caption("Data updated daily. Last update: 2024-01-14")
 
 ---
 
+## 🗄 Databases
+
+Full walkthrough in **[DATABASE_GUIDE.md](../DATABASE_GUIDE.md)**. The rules
+that bite people most often:
+
+### 1. Cache your connection
+
+**DO:**
+```python
+@st.cache_resource
+def get_conn():
+    return psycopg.connect(DB_URL, sslmode="require", autocommit=True)
+```
+
+**DON'T:** open a connection inside the main script body — you'd create a
+new one on every rerun, every click.
+
+### 2. Always parameterize queries
+
+**DO:**
+```python
+cur.execute("SELECT * FROM users WHERE email = %s", (email,))
+```
+
+**DON'T:**
+```python
+cur.execute(f"SELECT * FROM users WHERE email = '{email}'")  # ❌ SQL injection
+```
+
+### 3. Know your filesystem's lifetime
+
+- **Local laptop:** files persist forever.
+- **Streamlit Community Cloud / Render free:** files (including SQLite DBs)
+  written at runtime are WIPED on every redeploy, cold start, or restart.
+- **Fix:** use a managed database (Supabase, Neon, Render Postgres) for any
+  data you need to keep.
+
+### 4. Secrets never go in code
+
+**DO:** read the DB URL from `st.secrets` locally, and from
+`os.environ["DATABASE_URL"]` on hosts that use env vars (Render, Fly, etc.).
+Put a template at `.streamlit/secrets.toml.example` and `.gitignore` the real
+`secrets.toml`.
+
+**DON'T:** paste the URL into `app.py`, log it, or display it in UI error
+messages.
+
+### 5. `CREATE TABLE IF NOT EXISTS` is fine for tutorials
+
+For real apps, graduate to a migration tool (Alembic, `supabase db push`)
+so schema changes are tracked, reviewable, and reversible.
+
+---
+
 ## ♿ Accessibility
 
 ### 1. Use Descriptive Labels

@@ -5,6 +5,8 @@ A complete step-by-step guide to deploying your Streamlit app to the cloud **for
 > **Where this fits:** this is **step 5a** of the tutorial — use it when your
 > app is a single Streamlit script with no separate backend. If your app has a
 > FastAPI (or other) backend service, use **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)** instead.
+> Need to persist user data? See **[DATABASE_GUIDE.md](DATABASE_GUIDE.md)** —
+> writing to a file on Streamlit Community Cloud does NOT survive redeploys.
 > New here? Start at the [README](README.md).
 
 ## 🌐 What is Streamlit Cloud?

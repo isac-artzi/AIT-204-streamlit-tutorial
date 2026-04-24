@@ -266,6 +266,41 @@ st.help(pd.DataFrame)
 st.divider()
 ```
 
+## 🗄 Databases
+
+Full walkthrough: **[DATABASE_GUIDE.md](../DATABASE_GUIDE.md)**. Cheat-version:
+
+```python
+import sqlite3, os
+import psycopg
+import streamlit as st
+
+# --- SQLite: read-only (bundled .db) -----------------------------------------
+@st.cache_resource
+def ro_conn():
+    return sqlite3.connect("file:data.db?mode=ro", uri=True, check_same_thread=False)
+
+# --- SQLite: persistent local file -------------------------------------------
+@st.cache_resource
+def sqlite_conn():
+    conn = sqlite3.connect("app.db", check_same_thread=False)
+    conn.execute("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, body TEXT)")
+    return conn
+
+# --- Postgres (Supabase / Neon / Render / etc.) ------------------------------
+@st.cache_resource
+def pg_conn():
+    url = st.secrets.get("supabase", {}).get("DATABASE_URL") or os.environ["DATABASE_URL"]
+    return psycopg.connect(url, sslmode="require", autocommit=True)
+
+# Always parameterize queries — never f-strings.
+# SQLite: ? placeholders.    Postgres: %s placeholders.
+```
+
+⚠️ On **Streamlit Community Cloud** and **Render free tier**, the filesystem
+is ephemeral — SQLite files written at runtime vanish on redeploy. Use
+Postgres (e.g. Supabase) for real persistence.
+
 ## 📦 Advanced
 
 ```python

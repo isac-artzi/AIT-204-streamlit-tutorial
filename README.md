@@ -17,15 +17,17 @@ a step is obviously already familiar.
 | 4 | **[`my_first_app/`](my_first_app/)** | Copy the template and make something of your own. | 1+ hrs |
 | 5a | **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** | Deploy a **Streamlit-only** app on Streamlit Community Cloud (free). | ~20 min |
 | 5b | **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)** | Deploy a **Streamlit + FastAPI backend** app on Render.com (free). No prior cloud experience assumed. | ~45 min |
+| 6 | **[DATABASE_GUIDE.md](DATABASE_GUIDE.md)** | Store data that survives restarts — SQLite (3 modes) and Postgres on Supabase (free). | ~45 min |
 
 **Reference docs** you can dip into any time:
 
 - [`resources/cheatsheet.md`](resources/cheatsheet.md) — one-page syntax reference
 - [`resources/best_practices.md`](resources/best_practices.md) — tips for building production-quality apps
 
-Do **step 5a** if your app is a single Streamlit script. Do **step 5b** if
-your app has a separate backend (for an API, ML model server, database, or
-anything you want to call from multiple clients). You don't need to do both.
+Do **step 5a** if your app is a single Streamlit script; **step 5b** if it has
+a separate backend (API, ML model server, etc.). You don't need to do both.
+**Step 6** stands on its own — tackle it whenever your app needs to remember
+anything across restarts.
 
 ---
 
@@ -58,6 +60,7 @@ Streamlit-tutorial/
 ├── QUICKSTART.md                 # 5-minute quick start
 ├── DEPLOYMENT_GUIDE.md           # Streamlit Community Cloud deployment
 ├── RENDER_DEPLOYMENT_GUIDE.md    # Streamlit + FastAPI on Render.com
+├── DATABASE_GUIDE.md             # SQLite (3 modes) + Postgres on Supabase
 │
 ├── examples/
 │   ├── 01_hello_world.py            # Simplest possible app
@@ -65,10 +68,17 @@ Streamlit-tutorial/
 │   ├── 03_data_visualization.py     # Charts and graphs
 │   ├── 04_interactive_app.py        # Complete interactive example
 │   ├── 05_advanced_features.py      # Layouts, caching, state
-│   └── streamlit_fastapi_render/    # Full-stack example (frontend + backend)
-│       ├── backend/                 # FastAPI service
-│       ├── frontend/                # Streamlit service
-│       └── README.md                # How to run & deploy
+│   ├── streamlit_fastapi_render/    # Full-stack example (frontend + backend)
+│   │   ├── backend/                 # FastAPI service
+│   │   ├── frontend/                # Streamlit service
+│   │   └── README.md                # How to run & deploy
+│   └── database_demo/               # 4 apps: SQLite (ro/session/persistent) + Supabase
+│       ├── 01_sqlite_readonly.py
+│       ├── 02_sqlite_session.py
+│       ├── 03_sqlite_persistent.py
+│       ├── 04_postgres_supabase.py
+│       ├── seed_data.py             # creates the demo books.db
+│       └── README.md
 │
 ├── my_first_app/                # Template for your first project
 │   ├── app.py                   # Main application
@@ -532,7 +542,8 @@ Create an app that:
 3. **Deploy** — pick one path:
    - Streamlit-only app → [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
    - Streamlit + FastAPI backend → [RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)
-4. **Share** — post the URL; iterate based on feedback.
+4. **Add a Database** — persistent state across restarts → [DATABASE_GUIDE.md](DATABASE_GUIDE.md)
+5. **Share** — post the URL; iterate based on feedback.
 
 ---
 

@@ -529,6 +529,10 @@ restarts. If you need to save data between requests, use a database (Render
 offers managed Postgres; or use Supabase, Neon, etc.). For this text-stats
 demo we don't store anything, so we don't care.
 
+👉 For a from-scratch walkthrough — including free Supabase Postgres and the
+`DATABASE_URL` env-var pattern that drops straight into this tutorial's
+backend — see **[DATABASE_GUIDE.md](DATABASE_GUIDE.md)**.
+
 ### 5. Public URL format
 
 Your URLs look like `https://<service-name>-<random>.onrender.com`. If you
